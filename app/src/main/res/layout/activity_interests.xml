@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:fitsSystemWindows="true"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/bg_card"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/tvInterestsTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Your Interests"
+            android:textSize="28sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvInterestsSubtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Select at least 1 topic you want to learn about." />
+
+        <CheckBox
+            android:id="@+id/cbAlgorithms"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:textColor="@color/my_black"
+            android:buttonTint="@color/my_plum"
+            android:text="Algorithms" />
+
+        <CheckBox
+            android:id="@+id/cbDataStructures"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/my_black"
+            android:buttonTint="@color/my_plum"
+            android:text="Data Structures" />
+
+        <CheckBox
+            android:id="@+id/cbWebDevelopment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/my_black"
+            android:buttonTint="@color/my_plum"
+            android:text="Web Development" />
+
+        <CheckBox
+            android:id="@+id/cbTesting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/my_black"
+            android:buttonTint="@color/my_plum"
+            android:text="Software Testing" />
+
+        <CheckBox
+            android:id="@+id/cbDatabases"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/my_black"
+            android:buttonTint="@color/my_plum"
+            android:text="Databases" />
+
+        <CheckBox
+            android:id="@+id/cbNetworks"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/my_black"
+            android:buttonTint="@color/my_plum"
+            android:text="Computer Networks" />
+
+        <CheckBox
+            android:id="@+id/cbAI"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/my_black"
+            android:buttonTint="@color/my_plum"
+            android:text="AI" />
+
+        <CheckBox
+            android:id="@+id/cbCloudComputing"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/my_black"
+            android:buttonTint="@color/my_plum"
+            android:text="Cloud Computing" />
+
+        <CheckBox
+            android:id="@+id/cbCyberSecurity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/my_black"
+            android:buttonTint="@color/my_plum"
+            android:text="Cyber Security" />
+
+        <CheckBox
+            android:id="@+id/cbIoT"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/my_black"
+            android:buttonTint="@color/my_plum"
+            android:text="IoT" />
+
+        <CheckBox
+            android:id="@+id/cbMachineLearning"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/my_black"
+            android:buttonTint="@color/my_plum"
+            android:text="Machine Learning" />
+
+        <Button
+            android:id="@+id/btnSaveInterests"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/bg_primary_button"
+            android:text="Next"
+            android:textAllCaps="false"
+            android:textColor="@color/my_porcelain"
+            android:textStyle="bold"
+            app:backgroundTint="@null" />
+
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- My colour palette-->
+    <color name="my_black">#080705</color>
+    <color name="my_charcoal">#40434E</color>
+    <color name="my_plum">#702632</color>
+    <color name="my_rose">#912F40</color>
+    <color name="my_porcelain">#FFFFFA</color>
+
+    <!-- UI colors -->
+    <color name="my_light_surface">#F4F1EC</color>
+    <color name="my_error">#B3261E</color>
+</resources>
