@@ -16,6 +16,7 @@ public class UserPrefs {
     private static final String KEY_PHONE = "phone";
     private static final String KEY_LOGGED_IN = "logged_in";
     private static final String KEY_INTERESTS = "interests";
+    private static final String KEY_ACCOUNT_PLAN = "account_plan";
 
     // Returns the app's SharedPreferences file.
     private static SharedPreferences getPrefs(Context context) {
@@ -96,5 +97,17 @@ public class UserPrefs {
         SharedPreferences.Editor editor = getPrefs(context).edit();
         editor.remove(KEY_INTERESTS);
         editor.apply();
+    }
+
+    // Saves the user's current account plan.
+    public static void saveAccountPlan(Context context, String planName) {
+        SharedPreferences.Editor editor = getPrefs(context).edit();
+        editor.putString(KEY_ACCOUNT_PLAN, planName);
+        editor.apply();
+    }
+
+    // Returns the user's current account plan.
+    public static String getAccountPlan(Context context) {
+        return getPrefs(context).getString(KEY_ACCOUNT_PLAN, "Starter");
     }
 }

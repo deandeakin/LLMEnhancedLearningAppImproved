@@ -17,7 +17,7 @@ import java.util.Set;
 public class MainActivity extends AppCompatActivity {
 
     private TextView tvMainTitle, tvWelcome, tvNotification, tvGeneratedTaskLabel, tvGeneratedTaskDescription, tvRecentActivityLabel, tvRecentActivity;
-    private Button btnStartTask, btnLogout;
+    private Button btnStartTask, btnLogout, btnOpenProfile;
     private AppDatabase database;
 
     @Override
@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
         database = AppDatabase.getInstance(this);
         btnStartTask = findViewById(R.id.btnStartTask);
         btnLogout = findViewById(R.id.btnLogout);
+        btnOpenProfile = findViewById(R.id.btnOpenProfile);
 
         String username = UserPrefs.getUsername(this);
         Set<String> savedInterestSet = UserPrefs.getInterests(this);
@@ -74,6 +75,12 @@ public class MainActivity extends AppCompatActivity {
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
             finish();
+        });
+
+        // Opens the profile screen.
+        btnOpenProfile.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
+            startActivity(intent);
         });
     }
 

@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">LLM Enhanced Learning App Improved</string>
+    <string name="current_plan_format">Current Plan: %1$s</string>
+    <string name="google_pay_not_available">Google Pay is not available on this device.</string>
+    <string name="payment_cancelled">Google Pay payment cancelled.</string>
+    <string name="payment_failed">Google Pay payment failed.</string>
+    <string name="payment_success">Google Pay test payment successful.</string>
+    <string name="qr_code_title">Profile QR Code</string>
+    <string name="qr_code_error_title">QR Code Error</string>
+    <string name="qr_code_error_msg">Could not generate the QR code.</string>
+    <string name="close">Close</string>
 </resources>

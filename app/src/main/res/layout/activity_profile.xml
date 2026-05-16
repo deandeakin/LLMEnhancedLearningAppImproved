@@ -13,105 +13,98 @@
         android:padding="24dp">
 
         <TextView
-            android:id="@+id/tvMainTitle"
+            android:id="@+id/tvProfileTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Learning Assistant"
+            android:text="Profile"
             android:textColor="@color/my_black"
             android:textSize="28sp"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/tvWelcome"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:text="Hello, Student"
-            android:textColor="@color/my_black"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/tvNotification"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="You have 1 task due today."
-            android:textColor="@color/my_charcoal"
-            android:textSize="15sp" />
-
-        <TextView
-            android:id="@+id/tvGeneratedTaskLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:text="Generated Task"
-            android:textColor="@color/my_plum"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/tvGeneratedTaskDescription"
+            android:id="@+id/tvProfileDetails"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="16dp"
             android:background="@drawable/bg_card"
             android:padding="14dp"
-            android:text="Practice a short quiz based on your selected interests and past learning activity."
-            android:textColor="@color/my_charcoal"
+            android:text="Profile details section"
+            android:textColor="@color/my_black"
             android:textSize="16sp" />
 
         <TextView
-            android:id="@+id/tvRecentActivityLabel"
+            android:id="@+id/tvProfileStatsLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="Recent Activity"
+            android:layout_marginTop="24dp"
+            android:text="Learning Stats"
             android:textColor="@color/my_plum"
             android:textSize="18sp"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/tvRecentActivity"
+            android:id="@+id/tvProfileStats"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:background="@drawable/bg_card"
             android:padding="14dp"
-            android:text="No recent activity yet."
-            android:textColor="@color/my_charcoal"
+            android:text="Stats section."
+            android:textColor="@color/my_black"
             android:textSize="16sp" />
 
         <Button
-            android:id="@+id/btnStartTask"
+            android:id="@+id/btnViewHistory"
             android:layout_width="match_parent"
             android:layout_height="52dp"
             android:layout_marginTop="24dp"
+            android:background="@drawable/bg_secondary_button"
+            android:text="View History"
+            android:textAllCaps="false"
+            android:textColor="@color/my_porcelain"
+            app:backgroundTint="@null" />
+
+        <Button
+            android:id="@+id/btnShareProfile"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/bg_secondary_button"
+            android:text="Share Profile"
+            android:textAllCaps="false"
+            android:textColor="@color/my_porcelain"
+            app:backgroundTint="@null" />
+
+        <Button
+            android:id="@+id/btnShowQrCode"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/bg_secondary_button"
+            android:text="Show QR Code"
+            android:textAllCaps="false"
+            android:textColor="@color/my_porcelain"
+            app:backgroundTint="@null" />
+
+        <Button
+            android:id="@+id/btnUpgradeAccount"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_marginTop="12dp"
             android:background="@drawable/bg_primary_button"
-            android:text="Open Task"
+            android:text="Upgrade Account"
             android:textAllCaps="false"
             android:textColor="@color/my_porcelain"
             android:textStyle="bold"
             app:backgroundTint="@null" />
 
         <Button
-            android:id="@+id/btnOpenProfile"
+            android:id="@+id/btnBackToHome"
             android:layout_width="match_parent"
             android:layout_height="52dp"
             android:layout_marginTop="12dp"
             android:background="@drawable/bg_secondary_button"
-            android:text="Open Profile"
-            android:textAllCaps="false"
-            android:textColor="@color/my_porcelain"
-            app:backgroundTint="@null" />
-
-        <Button
-            android:id="@+id/btnLogout"
-            android:layout_width="match_parent"
-            android:layout_height="52dp"
-            android:layout_marginTop="12dp"
-            android:background="@drawable/bg_secondary_button"
-            android:text="Logout"
+            android:text="Back to Home"
             android:textAllCaps="false"
             android:textColor="@color/my_porcelain"
             app:backgroundTint="@null" />

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="12dp"
+    android:background="@drawable/bg_card"
+    android:orientation="vertical"
+    android:padding="14dp">
+
+    <TextView
+        android:id="@+id/tvHistoryTopic"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Topic"
+        android:textColor="@color/my_plum"
+        android:textSize="17sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvHistoryQuestion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Question"
+        android:textColor="@color/my_black"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/tvHistoryAnswer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Your answer"
+        android:textColor="@color/my_charcoal"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/tvHistoryCorrectAnswer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="Correct answer"
+        android:textColor="@color/my_charcoal"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/tvHistoryResult"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Result"
+        android:textColor="@color/my_black"
+        android:textSize="15sp"
+        android:textStyle="bold" />
+
+</LinearLayout>

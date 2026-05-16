@@ -166,20 +166,14 @@ public class ResultActivity extends AppCompatActivity {
         tvQuestion2Result.setText(q2Text);
         tvOverallSummary.setText(overallText);
 
-        // Saves the final submission to the database.
-        TaskHistory taskHistory = new TaskHistory(
-                username,
-                topic,
-                "Final task submission",
-                selectedAnswer1 + " | " + selectedAnswer2,
-                correctAnswer1 + " | " + correctAnswer2,
-                utility,
-                "Two-question submission",
-                overallText,
-                System.currentTimeMillis()
-        );
+        // Saves each submitted question as a separate history item.
+        // This makes the profile stats and history screen easier to calculate and display.
+        TaskHistory question1History = new TaskHistory(username, topic, question1, selectedAnswer1, correctAnswer1, utility, "Question 1 submission", q1Correct ? "Correct" : "Incorrect", System.currentTimeMillis());
 
-        database.taskHistoryDao().insert(taskHistory);
+        TaskHistory question2History = new TaskHistory(username, topic, question2, selectedAnswer2, correctAnswer2, utility, "Question 2 submission", q2Correct ? "Correct" : "Incorrect", System.currentTimeMillis() + 1);
+
+        database.taskHistoryDao().insert(question1History);
+        database.taskHistoryDao().insert(question2History);
     }
 
     // Shows the loading state while waiting for the backend.
