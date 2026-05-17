@@ -48,14 +48,14 @@ public class HistoryActivity extends AppCompatActivity {
         List<TaskHistory> allHistory = database.taskHistoryDao().getHistoryForUser(username);
         List<TaskHistory> submittedHistory = new ArrayList<>();
 
-        // filters out the hint and explanation records.
+        // Filters out the hint and explanation records.
         for (TaskHistory history : allHistory) {
             if ("submit".equals(history.getUtilityUsed())) {
                 submittedHistory.add(history);
             }
         }
 
-        // Shows and empty history message if there is no history.
+        // Shows an empty history message if there is no history.
         if (submittedHistory.isEmpty()) {
             tvEmptyHistory.setVisibility(View.VISIBLE);
             rvHistory.setVisibility(View.GONE);

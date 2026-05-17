@@ -37,7 +37,7 @@ public class UpgradeActivity extends AppCompatActivity {
     // Stores the selected paid plan while the Google Pay flow is running.
     private String pendingPlanName = "";
 
-    // Handles the result returned from the Google Pay.
+    // Handles the result returned from the Google Pay payment sheet.
     private final ActivityResultLauncher<IntentSenderRequest> paymentDataLauncher =
             registerForActivityResult(new ActivityResultContracts.StartIntentSenderForResult(),
                     result -> {
@@ -73,7 +73,7 @@ public class UpgradeActivity extends AppCompatActivity {
         btnBackToProfile.setOnClickListener(v -> finish());
     }
 
-    // Creates the Google Play client in TEST mode.
+    // Creates the Google Pay client in TEST mode.
     private PaymentsClient createPaymentsClient() {
         Wallet.WalletOptions walletOptions = new Wallet.WalletOptions.Builder()
                 .setEnvironment(WalletConstants.ENVIRONMENT_TEST)
@@ -201,7 +201,7 @@ public class UpgradeActivity extends AppCompatActivity {
         Toast.makeText(this, getString(R.string.plan_selected_format, planName), Toast.LENGTH_SHORT).show();
     }
 
-    // Base Google Pay requests information shareb by payment requestion objects.
+    // Base Google Pay request information shared by payment request objects.
     private JSONObject getBaseRequest() throws JSONException {
         return new JSONObject()
                 .put("apiVersion", 2)
