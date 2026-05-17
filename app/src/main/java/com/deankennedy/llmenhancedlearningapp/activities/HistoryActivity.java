@@ -22,7 +22,6 @@ public class HistoryActivity extends AppCompatActivity {
 
     private RecyclerView rvHistory;
     private TextView tvEmptyHistory;
-    private Button btnBackToProfile;
 
     private AppDatabase database;
     private String username;
@@ -34,7 +33,7 @@ public class HistoryActivity extends AppCompatActivity {
 
         rvHistory = findViewById(R.id.rvHistory);
         tvEmptyHistory = findViewById(R.id.tvEmptyHistory);
-        btnBackToProfile = findViewById(R.id.btnBackToProfile);
+        Button btnBackToProfile = findViewById(R.id.btnBackToProfile);
 
         database = AppDatabase.getInstance(this);
         username = UserPrefs.getUsername(this);
@@ -44,16 +43,19 @@ public class HistoryActivity extends AppCompatActivity {
         btnBackToProfile.setOnClickListener(v -> finish());
     }
 
+    // Loads the user's submitted task history and displays it in the RecyclerView.
     private void loadHistory() {
         List<TaskHistory> allHistory = database.taskHistoryDao().getHistoryForUser(username);
         List<TaskHistory> submittedHistory = new ArrayList<>();
 
+        // filters out the hint and explanation records.
         for (TaskHistory history : allHistory) {
             if ("submit".equals(history.getUtilityUsed())) {
                 submittedHistory.add(history);
             }
         }
 
+        // Shows and empty history message if there is no history.
         if (submittedHistory.isEmpty()) {
             tvEmptyHistory.setVisibility(View.VISIBLE);
             rvHistory.setVisibility(View.GONE);

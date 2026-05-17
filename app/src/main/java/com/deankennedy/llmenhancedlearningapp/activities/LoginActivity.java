@@ -14,7 +14,6 @@ import com.deankennedy.llmenhancedlearningapp.utils.UserPrefs;
 public class LoginActivity extends AppCompatActivity {
 
     private EditText etLoginEmail, etLoginPassword;
-    private Button btnLogin, btnGoToRegister;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,8 +31,8 @@ public class LoginActivity extends AppCompatActivity {
 
         etLoginEmail = findViewById(R.id.etLoginEmail);
         etLoginPassword = findViewById(R.id.etLoginPassword);
-        btnLogin = findViewById(R.id.btnLogin);
-        btnGoToRegister = findViewById(R.id.btnGoToRegister);
+        Button btnLogin = findViewById(R.id.btnLogin);
+        Button btnGoToRegister = findViewById(R.id.btnGoToRegister);
 
         // Validate entered credentials against the locally saved profile.
         btnLogin.setOnClickListener(v -> {

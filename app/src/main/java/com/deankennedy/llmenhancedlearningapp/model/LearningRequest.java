@@ -2,7 +2,7 @@ package com.deankennedy.llmenhancedlearningapp.model;
 
 public class LearningRequest {
 
-    private String username, topic, lessonSummary, question, selectedAnswer, correctAnswer, utility;
+    private final String username, topic, lessonSummary, question, selectedAnswer, correctAnswer, utility;
 
     public LearningRequest(String username, String topic, String lessonSummary, String question, String selectedAnswer, String correctAnswer, String utility) {
         this.username = username;

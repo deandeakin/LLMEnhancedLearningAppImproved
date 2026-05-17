@@ -27,8 +27,10 @@ import java.util.Set;
 
 public class ProfileActivity extends AppCompatActivity {
 
+    // Size used when generating the profile QR code bitmap.
+    private static final int QR_CODE_SIZE = 800;
+
     private TextView tvProfileDetails, tvProfileStats;
-    private Button btnViewHistory, btnShareProfile, btnUpgradeAccount, btnBackToHome, btnShowQrCode;
 
     private AppDatabase database;
 
@@ -45,11 +47,11 @@ public class ProfileActivity extends AppCompatActivity {
 
         tvProfileDetails = findViewById(R.id.tvProfileDetails);
         tvProfileStats = findViewById(R.id.tvProfileStats);
-        btnViewHistory = findViewById(R.id.btnViewHistory);
-        btnShareProfile = findViewById(R.id.btnShareProfile);
-        btnUpgradeAccount = findViewById(R.id.btnUpgradeAccount);
-        btnBackToHome = findViewById(R.id.btnBackToHome);
-        btnShowQrCode = findViewById(R.id.btnShowQrCode);
+        Button btnViewHistory = findViewById(R.id.btnViewHistory);
+        Button btnShareProfile = findViewById(R.id.btnShareProfile);
+        Button btnUpgradeAccount = findViewById(R.id.btnUpgradeAccount);
+        Button btnBackToHome = findViewById(R.id.btnBackToHome);
+        Button btnShowQrCode = findViewById(R.id.btnShowQrCode);
 
         database = AppDatabase.getInstance(this);
 
@@ -77,15 +79,22 @@ public class ProfileActivity extends AppCompatActivity {
         btnBackToHome.setOnClickListener(v -> finish());
     }
 
+    // Loads the saved user profile details and current account plan.
     private void loadProfile() {
         Set<String> interests = UserPrefs.getInterests(this);
-        interestsText = String.join(", ", interests);
+
+        if (interests.isEmpty()) {
+            interestsText = "No interests selected";
+        } else {
+            interestsText = String.join(", ", interests);
+        }
 
         String detailsText = "Username: " + username + "\nEmail: " + email + "\nPhone: " + phoneNumber + "\nInterests: " + interestsText + "\nCurrent Plan: " + UserPrefs.getAccountPlan(this);
 
         tvProfileDetails.setText(detailsText);
     }
 
+    // Calculates the user's learning stats from submitted task history.
     private void loadLearningStats() {
         List<TaskHistory> historyList = database.taskHistoryDao().getHistoryForUser(username);
 
@@ -93,6 +102,7 @@ public class ProfileActivity extends AppCompatActivity {
         correctlyAnswered = 0;
         incorrectlyAnswered = 0;
 
+        // Only final answers are counted.
         for (TaskHistory history : historyList) {
             if ("submit".equals(history.getUtilityUsed())) {
                 String selectedAnswer = history.getSelectedAnswer();
@@ -115,10 +125,12 @@ public class ProfileActivity extends AppCompatActivity {
         tvProfileStats.setText(statsText);
     }
 
+    // Builds the public profile summary for sharing.
     private String buildProfileShareText() {
         return "My Learning Profile\n\n" + "Username: " + username + "\n" + "Interests: " + interestsText + "\n" + "Current Plan: " + UserPrefs.getAccountPlan(this) + "\n" + "Total Questions Answered: " + totalQuestionsAnswered + "\n" + "Correctly Answered: " + correctlyAnswered + "\n" + "Incorrectly Answered: " + incorrectlyAnswered;
     }
 
+    // Opens Android share dialog to share the user's profile.
     private void shareProfile() {
         String shareText = buildProfileShareText();
 
@@ -130,13 +142,14 @@ public class ProfileActivity extends AppCompatActivity {
         startActivity(Intent.createChooser(shareIntent, "Share Profile"));
     }
 
+    // Generates and displays a QR code containing the user's profile summary.
     private void showProfileQrCode() {
         String profileText = buildProfileShareText();
 
-        // Run on background thread to keep UI responsive
+        // Runs QR generation on a background thread to keep the UI responsive.
         new Thread(() -> {
             try {
-                Bitmap qrBitmap = generateQrCode(profileText, 800, 800);
+                Bitmap qrBitmap = generateQrCode(profileText);
 
                 runOnUiThread(() -> {
                     ImageView imageView = new ImageView(this);
@@ -161,22 +174,24 @@ public class ProfileActivity extends AppCompatActivity {
         }).start();
     }
 
-    private Bitmap generateQrCode(String text, int width, int height) throws WriterException {
-        BitMatrix bitMatrix = new MultiFormatWriter().encode(text, BarcodeFormat.QR_CODE, width, height);
+    // Converts profile into a QR code bitmap (black and white).
+    private Bitmap generateQrCode(String text) throws WriterException {
+        BitMatrix bitMatrix = new MultiFormatWriter().encode(text, BarcodeFormat.QR_CODE, QR_CODE_SIZE, QR_CODE_SIZE);
 
-        int[] pixels = new int[width * height];
-        for (int y = 0; y < height; y++) {
-            int offset = y * width;
-            for (int x = 0; x < width; x++) {
+        int[] pixels = new int[QR_CODE_SIZE * QR_CODE_SIZE];
+        for (int y = 0; y < QR_CODE_SIZE; y++) {
+            int offset = y * QR_CODE_SIZE;
+            for (int x = 0; x < QR_CODE_SIZE; x++) {
                 pixels[offset + x] = bitMatrix.get(x, y) ? Color.BLACK : Color.WHITE;
             }
         }
 
-        Bitmap bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.RGB_565);
-        bitmap.setPixels(pixels, 0, width, 0, 0, width, height);
+        Bitmap bitmap = Bitmap.createBitmap(QR_CODE_SIZE, QR_CODE_SIZE, Bitmap.Config.RGB_565);
+        bitmap.setPixels(pixels, 0, QR_CODE_SIZE, 0, 0, QR_CODE_SIZE, QR_CODE_SIZE);
         return bitmap;
     }
 
+    // Refreshes the profile when returning.
     @Override
     protected void onResume() {
         super.onResume();

@@ -9,4 +9,16 @@
     <string name="qr_code_error_title">QR Code Error</string>
     <string name="qr_code_error_msg">Could not generate the QR code.</string>
     <string name="close">Close</string>
+    <string name="select_starter_plan">Select Starter Plan</string>
+    <string name="starter_plan_message">Would you like to switch to the free Starter plan?</string>
+    <string name="confirm">Confirm</string>
+    <string name="cancel">Cancel</string>
+    <string name="confirm_plan">Confirm Plan</string>
+    <string name="confirm_paid_plan_message">Would you like to purchase the %1$s plan for $%2$s?\n\nThis will open Google Pay in test mode.</string>
+    <string name="continue_button">Continue</string>
+    <string name="google_pay_error_format">Google Pay error: %1$s</string>
+    <string name="unknown_error">unknown</string>
+    <string name="google_pay_setup_failed">Google Pay request setup failed.</string>
+    <string name="google_pay_request_error">Could not create Google Pay request.</string>
+    <string name="plan_selected_format">%1$s plan selected</string>
 </resources>

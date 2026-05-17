@@ -6,6 +6,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.deankennedy.llmenhancedlearningapp.R;
@@ -17,8 +18,6 @@ import java.util.HashSet;
 public class InterestsActivity extends AppCompatActivity {
 
     private CheckBox cbAlgorithms, cbDataStructures, cbWebDevelopment, cbTesting, cbDatabases, cbNetworks, cbAI, cbCloudComputing, cbCyberSecurity, cbIoT, cbMachineLearning;
-
-    private Button btnSaveInterests;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,43 +35,9 @@ public class InterestsActivity extends AppCompatActivity {
         cbCyberSecurity = findViewById(R.id.cbCyberSecurity);
         cbIoT = findViewById(R.id.cbIoT);
         cbMachineLearning = findViewById(R.id.cbMachineLearning);
-        btnSaveInterests = findViewById(R.id.btnSaveInterests);
+        Button btnSaveInterests = findViewById(R.id.btnSaveInterests);
         btnSaveInterests.setOnClickListener(v -> {
-            ArrayList<String> selectedInterests = new ArrayList<>();
-
-            if (cbAlgorithms.isChecked()) {
-                selectedInterests.add("Algorithms");
-            }
-            if (cbDataStructures.isChecked()) {
-                selectedInterests.add("Data Structures");
-            }
-            if (cbWebDevelopment.isChecked()) {
-                selectedInterests.add("Web Development");
-            }
-            if (cbTesting.isChecked()) {
-                selectedInterests.add("Software Testing");
-            }
-            if (cbDatabases.isChecked()) {
-                selectedInterests.add("Databases");
-            }
-            if (cbNetworks.isChecked()) {
-                selectedInterests.add("Computer Networks");
-            }
-            if (cbAI.isChecked()) {
-                selectedInterests.add("AI");
-            }
-            if (cbCloudComputing.isChecked()) {
-                selectedInterests.add("Cloud Computing");
-            }
-            if (cbCyberSecurity.isChecked()) {
-                selectedInterests.add("Cyber Security");
-            }
-            if (cbIoT.isChecked()) {
-                selectedInterests.add("IoT");
-            }
-            if (cbMachineLearning.isChecked()) {
-                selectedInterests.add("Machine Learning");
-            }
+            ArrayList<String> selectedInterests = getStringArrayList();
 
             if (selectedInterests.isEmpty()) {
                 Toast.makeText(InterestsActivity.this, "Please select at least one interest", Toast.LENGTH_SHORT).show();
@@ -94,5 +59,45 @@ public class InterestsActivity extends AppCompatActivity {
             startActivity(intent);
             finish();
         });
+    }
+
+    @NonNull
+    private ArrayList<String> getStringArrayList() {
+        ArrayList<String> selectedInterests = new ArrayList<>();
+
+        if (cbAlgorithms.isChecked()) {
+            selectedInterests.add("Algorithms");
+        }
+        if (cbDataStructures.isChecked()) {
+            selectedInterests.add("Data Structures");
+        }
+        if (cbWebDevelopment.isChecked()) {
+            selectedInterests.add("Web Development");
+        }
+        if (cbTesting.isChecked()) {
+            selectedInterests.add("Software Testing");
+        }
+        if (cbDatabases.isChecked()) {
+            selectedInterests.add("Databases");
+        }
+        if (cbNetworks.isChecked()) {
+            selectedInterests.add("Computer Networks");
+        }
+        if (cbAI.isChecked()) {
+            selectedInterests.add("AI");
+        }
+        if (cbCloudComputing.isChecked()) {
+            selectedInterests.add("Cloud Computing");
+        }
+        if (cbCyberSecurity.isChecked()) {
+            selectedInterests.add("Cyber Security");
+        }
+        if (cbIoT.isChecked()) {
+            selectedInterests.add("IoT");
+        }
+        if (cbMachineLearning.isChecked()) {
+            selectedInterests.add("Machine Learning");
+        }
+        return selectedInterests;
     }
 }

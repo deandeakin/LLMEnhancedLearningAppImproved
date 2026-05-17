@@ -17,6 +17,7 @@ public class TaskHistoryAdapter extends RecyclerView.Adapter<TaskHistoryAdapter.
 
     private final List<TaskHistory> historyList;
 
+    // Receives the submitted task history records shown in the history list.
     public TaskHistoryAdapter(List<TaskHistory> historyList) {
         this.historyList = historyList;
     }
@@ -30,6 +31,7 @@ public class TaskHistoryAdapter extends RecyclerView.Adapter<TaskHistoryAdapter.
         return new TaskHistoryViewHolder(view);
     }
 
+    // Populates each history card with the question, selected answer, correct answer, and result.
     @Override
     public void onBindViewHolder(@NonNull TaskHistoryViewHolder holder, int position) {
         TaskHistory history = historyList.get(position);
@@ -37,9 +39,8 @@ public class TaskHistoryAdapter extends RecyclerView.Adapter<TaskHistoryAdapter.
         String selectedAnswer = history.getSelectedAnswer();
         String correctAnswer = history.getCorrectAnswer();
 
-        boolean isCorrect = selectedAnswer != null
-                && correctAnswer != null
-                && selectedAnswer.trim().equals(correctAnswer.trim());
+        // Checks the saved selected answer with the saved correct answer.
+        boolean isCorrect = selectedAnswer != null && correctAnswer != null && selectedAnswer.trim().equals(correctAnswer.trim());
 
         holder.tvHistoryTopic.setText("Topic: " + history.getTopic());
         holder.tvHistoryQuestion.setText("Question: " + history.getQuestion());
@@ -53,6 +54,7 @@ public class TaskHistoryAdapter extends RecyclerView.Adapter<TaskHistoryAdapter.
         return historyList.size();
     }
 
+    // Holds the views for each history card.
     public static class TaskHistoryViewHolder extends RecyclerView.ViewHolder {
 
         TextView tvHistoryTopic, tvHistoryQuestion, tvHistoryAnswer, tvHistoryCorrectAnswer, tvHistoryResult;

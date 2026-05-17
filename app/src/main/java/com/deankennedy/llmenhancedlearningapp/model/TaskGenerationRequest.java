@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 public class TaskGenerationRequest {
 
-    private String username;
-    private ArrayList<String> interests;
+    private final String username;
+    private final ArrayList<String> interests;
 
     public TaskGenerationRequest(String username, ArrayList<String> interests) {
         this.username = username;
