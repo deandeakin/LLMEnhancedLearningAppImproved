@@ -22,7 +22,6 @@ public class HistoryActivity extends AppCompatActivity {
 
     private RecyclerView rvHistory;
     private TextView tvEmptyHistory;
-
     private AppDatabase database;
     private String username;
 

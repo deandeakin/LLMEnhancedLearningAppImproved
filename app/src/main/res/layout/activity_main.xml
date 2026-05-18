@@ -99,7 +99,7 @@
             android:layout_width="match_parent"
             android:layout_height="52dp"
             android:layout_marginTop="12dp"
-            android:background="@drawable/bg_secondary_button"
+            android:background="@drawable/bg_primary_button"
             android:text="Open Profile"
             android:textAllCaps="false"
             android:textColor="@color/my_porcelain"
